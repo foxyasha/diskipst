@@ -19,7 +19,7 @@ const FileCard = ({file, id}: IFileCardProps) => {
     return (
         <div>
             <div className="mt-2 space-y-2">
-                <span>{file.name}</span>
+                <p className="truncate">{file.name}</p>
                 <svg onClick={() => openInNewTab(file.filepath)} className="cursor-pointer"
                      xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                      width="50" height="50" viewBox="0 0 50 50">

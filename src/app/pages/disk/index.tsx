@@ -63,7 +63,7 @@ const DiskPage = () => {
                 <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
                     <div className="max-w-md mx-auto">
                         <div>
-                            <h1 className="text-2xl font-semibold">Облачное хранилище</h1>
+                            <h1 className="text-2xl font-semibold mb-3">Диск</h1>
                             <button
                                 onClick={handleLogout}
                                 className="absolute mt-6 top-0 right-3 px-1 py-1 text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-2 focus:ring-2 focus:ring-red-600 focus:ring-opacity-50"
@@ -88,7 +88,7 @@ const DiskPage = () => {
 
                             </div>
                             <input disabled={!id} onChange={handleUploadChange}
-                                   className=" block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                   className="mt-2 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                    type="file"/>
 
                             <Modal
@@ -116,7 +116,7 @@ const DiskPage = () => {
                             <div>
                                 <span className="cursor-pointer " hidden={!id}
                                       onClick={handleBackToPrevFolder}>🠔Назад</span>
-                                <div className="grid grid-cols-4 gap-2">
+                                <div className="grid grid-cols-4 gap-2 mt-3">
                                     {data?.children.map((item) => {
                                         if ('name' in item) {
                                             return <FolderCard key={item.id} id={item.id} name={item.name}/>;
