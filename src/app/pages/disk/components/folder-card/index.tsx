@@ -3,6 +3,7 @@ import {replaceArgs} from "../../../../tools/replaceargs";
 import {useEffect, useState} from "react";
 import Modal from "../../../../components/modal";
 import {useEditFolderLogic} from "../../../../../domain/folder/logic/edit";
+import {useDeleteFolderLogic} from "../../../../../domain/folder/logic/delete";
 
 
 interface IFolderCardProps {
@@ -16,15 +17,13 @@ const FolderCard = ({id, name}: IFolderCardProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [folderName, setFolderName] = useState('')
 
-    // const {mutateAsync} = useDeleteFolderLogic()
-    const {mutateAsync} = useEditFolderLogic()
+    const {mutateAsync: deleteMutateAsync} = useDeleteFolderLogic()
+    const {mutateAsync: editMutateAsync} = useEditFolderLogic()
 
 
-    // const handleFolderDelete = () => {
-    //
-    //     void mutateAsync({id})
-    //
-    // }
+    const handleFolderDelete = () => {
+        void deleteMutateAsync({id})
+    }
 
     const handleIntoFolder = () => {
         navigate(
@@ -33,7 +32,7 @@ const FolderCard = ({id, name}: IFolderCardProps) => {
     }
 
     const handleEditFolder = () => {
-        void mutateAsync({id, name: folderName, parentId: id ?? 'root'})
+        void editMutateAsync({id, name: folderName})
 
     }
 
@@ -90,7 +89,7 @@ const FolderCard = ({id, name}: IFolderCardProps) => {
                           d="M40,12H8c-2.2,0-4,1.8-4,4v20c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V16C44,13.8,42.2,12,40,12z"></path>
                 </svg>
                 <button
-                    // onClick={handleFolderDelete}
+                    onClick={handleFolderDelete}
                     className="px-2 py-1 text-sm text-white bg-red-500 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50"
                 >
                     Удалить

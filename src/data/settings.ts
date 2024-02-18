@@ -13,7 +13,7 @@ API_HTTPS_SERVICES.interceptors.request.use(
         config.headers['Authorization'] = `Bearer ${Cookies.get(
             ECookieValues.ACCESS_TOKEN
         )}`
-        config.headers['Content-Type'] = 'application/json'
+        config.headers['Content-Type'] = 'application/json' && 'multipart/form-data'
 
         return config
     },

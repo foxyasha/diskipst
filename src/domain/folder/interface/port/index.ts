@@ -5,7 +5,7 @@ interface ICreateFolderPort {
     name: string
 }
 
-type IUpdateFolderPort = ICreateFolderPort & IId
+type IUpdateFolderPort = { name: string } & IId
 
 type IGetFolderPort = IId
 

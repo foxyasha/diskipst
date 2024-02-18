@@ -1,4 +1,5 @@
 import {IId} from "../../../common/interface";
+import {IChildrenFile as IChildrenFileDto} from "../../../file/interface/dto"
 
 interface ICreateFolderDto {
     token: string
@@ -11,7 +12,7 @@ interface IChildrenFolder extends IBaseChildren {
 
 
 interface IChildrenFile extends IBaseChildren {
-    file: unknown
+    file: IChildrenFileDto
 }
 
 type IChildren = IChildrenFile | IChildrenFolder
