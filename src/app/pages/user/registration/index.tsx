@@ -11,7 +11,9 @@ const RegisterPage = () => {
     }
 
 
-    return <AuthForm mutateAsync={mutateAsync} title="Регистрация" button={<button onClick={handleClick}/>}/>
+    return <AuthForm mutateAsync={mutateAsync} title="Регистрация"
+                     button={<button onClick={handleClick}>Уже есть аккаунт? Войти</button>}
+                     actionButton="Зарегистрироваться"/>
 };
 
 export default RegisterPage;

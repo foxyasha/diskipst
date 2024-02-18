@@ -4,7 +4,17 @@ interface ICreateFolderDto {
     token: string
 }
 
-type IChildren = IChildrenFolder | IChildrenFile
+interface IChildrenFolder extends IBaseChildren {
+    name: string
+
+}
+
+
+interface IChildrenFile extends IBaseChildren {
+    file: unknown
+}
+
+type IChildren = IChildrenFile | IChildrenFolder
 
 interface IGetFolderDto extends IId {
     name: string,
@@ -15,13 +25,5 @@ interface IBaseChildren extends IId {
     type: string,
 }
 
-interface IChildrenFolder extends IBaseChildren {
-    name: string
-}
 
-interface IChildrenFile extends IBaseChildren {
-    file: unknown
-}
-
-
-export type {ICreateFolderDto, IGetFolderDto}
+export type {ICreateFolderDto, IGetFolderDto, IChildrenFolder}

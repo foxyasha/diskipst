@@ -1,4 +1,9 @@
-import {ICreateFolderPort, IDeleteFolderPort, IGetFolderPort} from "../../domain/folder/interface/port";
+import {
+    ICreateFolderPort,
+    IDeleteFolderPort,
+    IGetFolderPort,
+    IUpdateFolderPort
+} from "../../domain/folder/interface/port";
 import API_HTTPS_SERVICES from "../settings.ts";
 import {ICreateFolderDto, IGetFolderDto} from "../../domain/folder/interface/dto";
 
@@ -10,7 +15,7 @@ const DeleteFolderRequest = (port: IDeleteFolderPort): Promise<unknown> => {
     return API_HTTPS_SERVICES.delete(`/drive/folder/${port.id}`).then(res => res.data)
 }
 
-const UpdateFolderRequest = ({id, ...port}: IGetFolderPort): Promise<unknown> => {
+const UpdateFolderRequest = ({id, ...port}: IUpdateFolderPort): Promise<unknown> => {
     return API_HTTPS_SERVICES.patch(`/drive/folder/${id}`, port)
 }
 

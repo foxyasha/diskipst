@@ -1,6 +1,6 @@
 import {useLoginLogic} from "../../../../domain/user/logic/auth";
-import AuthForm from "../form";
 import {useNavigate} from "react-router-dom";
+import AuthForm from "../form";
 
 
 const AuthPage = () => {
@@ -12,7 +12,10 @@ const AuthPage = () => {
     }
 
     return (
-        <AuthForm mutateAsync={mutateAsync} title="Авторизация" button={<button onClick={handleClick}/>}/>
+        <AuthForm mutateAsync={mutateAsync} title="Авторизация"
+                  button={<button onClick={handleClick}>Нет
+                      аккаунта? Создать</button>} actionButton="Авторизоваться"/>
+
     )
 };
 
